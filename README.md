@@ -1,176 +1,98 @@
+# 🎵 Zarya.nvim
+
 <div align="center">
 
-# 🎵 Apple Music Neovim Plugin
+<img src="https://img.shields.io/badge/neovim-0.7+-57A143.svg?style=for-the-badge&logo=neovim" alt="Neovim">
+<img src="https://img.shields.io/badge/lua-5.1+-2C2D72.svg?style=for-the-badge&logo=lua" alt="Lua">
+<img src="https://img.shields.io/badge/platform-macOS-lightgrey.svg?style=for-the-badge" alt="macOS">
+<img src="https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge" alt="License">
 
-[![Neovim](https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white)](https://neovim.io/)
-[![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white)](https://www.lua.org/)
-[![Apple Music](https://img.shields.io/badge/Apple_Music-FA243C?style=for-the-badge&logo=apple-music&logoColor=white)](https://www.apple.com/apple-music/)
+**Control Apple Music without leaving Neovim**
 
-Control Apple Music directly from Neovim with a beautiful floating UI
-
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![macOS](https://img.shields.io/badge/platform-macOS-lightgrey)
+[Installation](#installation) · [Usage](#usage) · [Configuration](#configuration)
 
 </div>
 
 ---
 
-## ✨ Overview
+Zarya.nvim provides an elegant floating UI for Apple Music inside Neovim — track info, playback controls, volume, and a Telescope-powered playlist picker, all without leaving your editor.
 
-This plugin allows you to control **Apple Music** without leaving your Neovim environment. It provides an elegant floating UI that displays the current track information and enables playback control through simple key mappings.
+---
 
-<div align="center">
-  <img src="https://github.com/NoamFav/apple_music.nvim/raw/main/screenshots/music_ui.png" width="600" alt="Apple Music Neovim UI">
-</div>
+## Requirements
 
-## 🚀 Features
+- Neovim 0.7+
+- macOS (uses `osascript`)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 
-<table>
-<tr>
-<td width="50%" valign="top">
+---
 
-### Music Control
-- 🎮 Play/Pause current track
-- ⏭️ Skip to next track
-- ⏮️ Go to previous track
-- 🔊 Adjust volume up/down
-- 📑 Browse and select playlists
+## Installation
 
-</td>
-<td width="50%" valign="top">
-
-### UI Elements
-- 🪟 Elegant floating window UI
-- 🔄 Auto-updating track information (every 2s)
-- 📊 Visual volume indicator
-- ⏱️ Track progress display
-- 🎨 Stylish minimal design
-
-</td>
-</tr>
-</table>
-
-## 📋 Requirements
-
-- **Neovim 0.7+**
-- **macOS** (uses `osascript` to control Apple Music)
-- **Telescope.nvim** (for playlist picker functionality)
-- **Plenary.nvim** (dependency for Telescope)
-
-## 📦 Installation
-
-<details open>
-<summary><b>Using Lazy.nvim</b> (recommended)</summary>
-<br>
-
-Add the following to your Neovim configuration:
-
+**lazy.nvim:**
 ```lua
 {
-  "NoamFav/apple_music.nvim",
-  dependencies = { 
-    "nvim-telescope/telescope.nvim", 
-    "nvim-lua/plenary.nvim" 
+  "NoamFav/Zarya.nvim",
+  dependencies = {
+    "nvim-telescope/telescope.nvim",
+    "nvim-lua/plenary.nvim"
   },
   config = function()
-    require("apple_music").setup({
-      -- Optional configuration here
-    })
+    require("apple_music").setup({})
   end,
 }
 ```
-</details>
 
-<details>
-<summary><b>Using Packer.nvim</b></summary>
-<br>
-
+**packer.nvim:**
 ```lua
 use {
-  "NoamFav/apple_music.nvim",
-  requires = { 
-    "nvim-telescope/telescope.nvim", 
-    "nvim-lua/plenary.nvim" 
-  },
-  config = function()
-    require("apple_music").setup()
-  end
+  "NoamFav/Zarya.nvim",
+  requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+  config = function() require("apple_music").setup() end
 }
 ```
-</details>
 
-<details>
-<summary><b>Using Vim-Plug</b></summary>
-<br>
+---
 
-```vim
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'NoamFav/apple_music.nvim'
-
-" In your init.vim/init.lua after plug#end():
-" lua require('apple_music').setup()
-```
-</details>
-
-## 🎯 Usage
+## Usage
 
 ### Commands
 
 | Command | Description |
 |---------|-------------|
-| `:MusicControl` | Opens the floating music control UI |
-| `:FocusMusicUI` | Focuses on the floating window (or returns focus to previous window) |
-| `:MusicPickPlaylist` | Opens Telescope picker to select a playlist |
+| `:MusicControl` | Open floating music control UI |
+| `:FocusMusicUI` | Focus / unfocus the floating window |
+| `:MusicPickPlaylist` | Telescope playlist picker |
 
 ### Default Key Mappings
 
 | Mapping | Action |
 |---------|--------|
-| `<Leader>mu` | Open Music Control UI |
-| `<Leader>mp` | Play/Pause Music |
-| `<Leader>mn` | Next Track |
-| `<Leader>mb` | Previous Track |
-| `<Leader>m+` | Increase Volume |
-| `<Leader>m-` | Decrease Volume |
-| `<Leader>mq` | Close Music Control UI |
-| `<Leader>mm` | Focus Music UI |
-| `<Leader>pp` | Pick Playlist (with optional shuffle) |
+| `<Leader>mu` | Open Music UI |
+| `<Leader>mp` | Play / Pause |
+| `<Leader>mn` | Next track |
+| `<Leader>mb` | Previous track |
+| `<Leader>m+` | Volume up |
+| `<Leader>m-` | Volume down |
+| `<Leader>mq` | Close UI |
+| `<Leader>mm` | Focus UI |
+| `<Leader>pp` | Pick playlist |
 
-## 📁 Plugin Structure
+---
 
-The plugin is organized into several modules:
+## Configuration
 
-- **`init.lua`**: Entry point with setup function and command registration
-- **`music_control.lua`**: Functions for controlling Apple Music via osascript
-- **`music_ui.lua`**: Floating UI implementation with Neovim's window API
-- **`playlist_picker.lua`**: Telescope integration for playlist selection
+The UI refreshes every 2 seconds by default — adjustable in the setup options.
 
-## 📝 Notes
+---
 
-- The UI updates every 2 seconds by default, which can be configured
-- The plugin only works on macOS as it relies on AppleScript to control Apple Music
-- Make sure Apple Music is installed and accessible on your system
+## License
 
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to submit issues or pull requests on the [GitHub repository](https://github.com/NoamFav/apple_music.nvim).
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📜 License
-
-This plugin is available under the MIT License. See the LICENSE file for more information.
+MIT — see [LICENSE](LICENSE).
 
 ---
 
 <div align="center">
-
-**Happy coding and listening!** 🎵✨
-
+Made with ❤️ by <a href="https://github.com/NoamFav">NoamFav</a>
 </div>
