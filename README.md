@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/neovim-0.7+-57A143.svg?style=for-the-badge&logo=neovim" alt="Neovim">
 <img src="https://img.shields.io/badge/lua-5.1+-2C2D72.svg?style=for-the-badge&logo=lua" alt="Lua">
 <img src="https://img.shields.io/badge/platform-macOS-lightgrey.svg?style=for-the-badge" alt="macOS">
-<img src="https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge" alt="License">
+<img src="https://img.shields.io/badge/license-Apache%202.0-green.svg?style=for-the-badge" alt="License">
 
 **Control Apple Music without leaving Neovim**
 
@@ -89,7 +89,7 @@ The UI refreshes every 2 seconds by default — adjustable in the setup options.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+Apache 2.0 — see [LICENSE](LICENSE).
 
 ---
 
