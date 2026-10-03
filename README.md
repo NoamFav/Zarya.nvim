@@ -1,34 +1,34 @@
-# 🎵 Zarya.nvim
-
 <div align="center">
-
-<img src="https://img.shields.io/badge/neovim-0.7+-57A143.svg?style=for-the-badge&logo=neovim" alt="Neovim">
-<img src="https://img.shields.io/badge/lua-5.1+-2C2D72.svg?style=for-the-badge&logo=lua" alt="Lua">
-<img src="https://img.shields.io/badge/platform-macOS-lightgrey.svg?style=for-the-badge" alt="macOS">
-<img src="https://img.shields.io/badge/license-Apache%202.0-green.svg?style=for-the-badge" alt="License">
-
-**Control Apple Music without leaving Neovim**
-
-[Installation](#installation) · [Usage](#usage) · [Configuration](#configuration)
-
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/brand/banner-night.svg">
+  <img alt="Zarya.nvim: Control Apple Music without leaving Neovim" src=".github/brand/banner-paper.svg" width="100%">
+</picture>
+<br><br>
+<a href="#requirements"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/brand/tab-requirements-night.svg"><img alt="requirements" src=".github/brand/tab-requirements-paper.svg"></picture></a>
+<a href="#installation"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/brand/tab-installation-night.svg"><img alt="installation" src=".github/brand/tab-installation-paper.svg"></picture></a>
+<a href="#usage"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/brand/tab-usage-night.svg"><img alt="usage" src=".github/brand/tab-usage-paper.svg"></picture></a>
+<a href="#configuration"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/brand/tab-configuration-night.svg"><img alt="configuration" src=".github/brand/tab-configuration-paper.svg"></picture></a>
+<a href="#license"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/brand/tab-license-night.svg"><img alt="license" src=".github/brand/tab-license-paper.svg"></picture></a>
 </div>
 
----
+<br>
 
 Zarya.nvim provides an elegant floating UI for Apple Music inside Neovim — track info, playback controls, volume, and a Telescope-powered playlist picker, all without leaving your editor.
 
----
-
-## Requirements
+<p>
+<a name="requirements"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset=".github/brand/section-requirements-night.svg"><img alt="requirements" src=".github/brand/section-requirements-paper.svg" width="100%"></picture>
+</p>
 
 - Neovim 0.7+
 - macOS (uses `osascript`)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 
----
-
-## Installation
+<p>
+<a name="installation"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset=".github/brand/section-installation-night.svg"><img alt="installation" src=".github/brand/section-installation-paper.svg" width="100%"></picture>
+</p>
 
 **lazy.nvim:**
 ```lua
@@ -53,9 +53,10 @@ use {
 }
 ```
 
----
-
-## Usage
+<p>
+<a name="usage"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset=".github/brand/section-usage-night.svg"><img alt="usage" src=".github/brand/section-usage-paper.svg" width="100%"></picture>
+</p>
 
 ### Commands
 
@@ -79,20 +80,29 @@ use {
 | `<Leader>mm` | Focus UI |
 | `<Leader>pp` | Pick playlist |
 
----
-
-## Configuration
+<p>
+<a name="configuration"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset=".github/brand/section-configuration-night.svg"><img alt="configuration" src=".github/brand/section-configuration-paper.svg" width="100%"></picture>
+</p>
 
 The UI refreshes every 2 seconds by default — adjustable in the setup options.
 
----
-
-## License
+<p>
+<a name="license"></a>
+<picture><source media="(prefers-color-scheme: dark)" srcset=".github/brand/section-license-night.svg"><img alt="license" src=".github/brand/section-license-paper.svg" width="100%"></picture>
+</p>
 
 Apache 2.0 — see [LICENSE](LICENSE).
-
----
 
 <div align="center">
 Made with ❤️ by <a href="https://github.com/NoamFav">NoamFav</a>
 </div>
+
+<br>
+
+<a href="https://nf-software.com">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/brand/footer-night.svg">
+  <img alt="NF Software" src=".github/brand/footer-paper.svg" width="100%">
+</picture>
+</a>
